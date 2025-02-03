@@ -11,7 +11,4 @@ public class DetailComposant  {
     private Integer imc;
     @Enumerated(EnumType.STRING)
     private TypeComposant typeComposant;
-
-    @OneToOne
-    private Composant composant;
 }

@@ -1,6 +1,9 @@
 package com.example.demo.entities;
 
 import jakarta.persistence.*;
+
+import java.util.Set;
+
 @Entity
 @Table(name = "Menu")
 public class Menu {
@@ -15,6 +18,13 @@ public class Menu {
 
     private Float prixTotal;
 
-    @ManyToOne
-    private Restaurant restaurant;
+    @OneToMany(mappedBy = "menu")
+    private Set<Commande> commandes;
+
+    @OneToMany(mappedBy = "menu")
+    private Set<Composant> composants;
+
+    @ManyToMany(mappedBy = "menus")
+    private Set<ChefCuisinier> chefsCuisiniers;
+
 }

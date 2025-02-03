@@ -15,5 +15,5 @@ public class ChefCuisinier {
     private TypeChef typeChef;
 
     @ManyToMany
-    private List<Menu> menu;
+    private List<Menu> menus;
 }

@@ -18,8 +18,8 @@ public class Commande {
     private Long note;
 
     @ManyToOne
-    private Client client;
-    @ManyToOne
-    private Menu menu;
+    Client client;
 
+    @ManyToOne
+    Menu menu;
 }

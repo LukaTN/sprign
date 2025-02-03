@@ -1,6 +1,9 @@
 package com.example.demo.entities;
 
 import jakarta.persistence.*;
+
+import java.util.Set;
+
 @Entity
 @Table(name = "Restaurant")
 public class Restaurant {
@@ -12,5 +15,9 @@ public class Restaurant {
     private Integer nbPlacesMax;
 
     @ManyToOne
-    private ChaineRestauration chaineRestauration;
+    ChaineRestauration chaineRestauration;
+
+    @OneToMany
+    private Set<Menu> menus;
+
 }

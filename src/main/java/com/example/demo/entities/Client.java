@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -22,4 +23,8 @@ public class Client {
     private Date datePremiereVisite;
     @Transient // attribut non persisté (pas ajouter a la base de données et on peut le modifier sans changer la table)
     private LocalDate diffBetweenDates;
+
+    @OneToMany(mappedBy = "client")
+    private Set<Commande> commandes;
+
 }

@@ -1,7 +1,7 @@
 package com.example.demo.entities;
 import jakarta.persistence.*;
 import java.time.LocalDate;
-import java.util.List;
+import java.util.Set;
 
 @Entity
 
@@ -15,6 +15,6 @@ public class ChaineRestauration {
     @Temporal(TemporalType.DATE)
     private LocalDate localDate;
 
-    @OneToMany
-    private List<Restaurant> restaurant;
+    @OneToMany(mappedBy = "chaineRestauration")
+    private Set<Restaurant> restaurant;
 }

@@ -12,5 +12,8 @@ public class Composant {
     private Float prix;
 
     @ManyToOne
-    private Menu menu;
+    Menu menu;
+
+    @OneToOne
+    private DetailComposant detailComposant;
 }
