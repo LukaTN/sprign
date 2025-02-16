@@ -1,19 +1,30 @@
 package com.example.demo.entities;
 import jakarta.persistence.*;
+import lombok.*;
+import lombok.experimental.FieldDefaults;
+
 import java.util.List;
 
 @Entity
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
+@EqualsAndHashCode
+@FieldDefaults(level = AccessLevel.PRIVATE)
+@Builder
 @Table(name = "ChefCuisinier")
 public class ChefCuisinier {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
-    private Long idChefCuisinier;
-    private String nom;
-    private String prenom;
+     Long idChefCuisinier;
+     String nom;
+     String prenom;
     @Enumerated(EnumType.STRING)
-    private TypeChef typeChef;
+     TypeChef typeChef;
 
     @ManyToMany
-    private List<Menu> menus;
+     List<Menu> menus;
 }

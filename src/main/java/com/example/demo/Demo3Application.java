@@ -12,7 +12,7 @@ public class Demo3Application {
     public static void main(String[] args) {
         SpringApplication.run(Demo3Application.class, args);
     }
-        Client c1 = new Client();
+        //Client c1 = new Client();
 
 
 
