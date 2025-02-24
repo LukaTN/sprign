@@ -11,6 +11,6 @@ import java.util.List;
 
 public interface RestaurantRepo extends JpaRepository<Restaurant, Long>{
 
-    @Query("SELECT r FROM Restaurant r WHERE r.capacite > :capacite AND r.chaineRestauration.dateCreation < :date")
+    @Query("SELECT r FROM Restaurant r WHERE r.nbPlacesMax > :capacite AND r.chaineRestauration.dateCreation < :date")
     List<Restaurant> findByCapaciteGreaterThanAndChaineRestauration_DateCreationBefore(@Param("capacite") int capacite, @Param("date") LocalDate date);
 }
