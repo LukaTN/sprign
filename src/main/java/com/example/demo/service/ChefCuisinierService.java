@@ -2,11 +2,16 @@ package com.example.demo.service;
 
 import com.example.demo.entities.ChefCuisinier;
 import com.example.demo.repository.ChefCuisinierRepo;
+import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-public class ChefCuisinierService implements IChefCuisinerService{
 
+@Service
+@AllArgsConstructor
+public class ChefCuisinierService implements IChefCuisinerService{
     ChefCuisinierRepo chefCuisinierRepository;
 
     @Override

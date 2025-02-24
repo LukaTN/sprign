@@ -3,10 +3,16 @@ package com.example.demo.service;
 import com.example.demo.entities.ChaineRestauration;
 import com.example.demo.service.IChaineRestaurationService;
 import com.example.demo.repository.ChaineRestaurationRepo;
+import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
+@AllArgsConstructor
 public class ChaineRestaurationService implements IChaineRestaurationService {
+
     ChaineRestaurationRepo chaineRestaurationRepository;
 
     @Override

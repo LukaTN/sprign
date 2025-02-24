@@ -1,24 +1,24 @@
 package com.example.demo.repository;
 import com.example.demo.entities.TypeMenu;
+import org.springframework.data.domain.Limit;
 import org.springframework.data.jpa.repository.JpaRepository;
 import com.example.demo.entities.Menu;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-
+@Repository
 public interface MenuRepo extends JpaRepository<Menu, Long>{
 
-    List<Menu> findByTypeMenu(TypeMenu typeMenu);
+    List<Menu> findByTypeMenuAndPrixTotalGreaterThan(TypeMenu typeMenu, Float prixTotalIsGreaterThan, Limit limit);
 
-    //List<Menu> findByTypeMenuAndTotalPriceGreaterThan(TypeMenu typeMenu, double amount);
+    @Query("select m.libelleMenu from Menu m where m.typeMenu = :typeMenu order by m.prixTotal asc")
+    List <Menu> findByTypeMenuAndOrderByPrixTotal(String typeMenu);
 
-    @Query("SELECT m FROM Menu m JOIN m.composants c WHERE m.typeMenu = :typeMenu GROUP BY m HAVING SUM(c.prix) > :amount")
-    List<Menu> findByTypeMenuAndTotalPriceGreaterThan(@Param("typeMenu") TypeMenu typeMenu, @Param("amount") double amount);
-
-    @Query("SELECT m.libelleMenu FROM Menu m JOIN m.composants c WHERE m.typeMenu = :typeMenu GROUP BY m ORDER BY SUM(c.prix)")
-    List<String> findMenuNamesByTypeMenuOrderByTotalPrice(@Param("typeMenu") TypeMenu typeMenu);
+    @Query("select m.libelleMenu from Menu m  join m.composants c where c.detailComposant  = :typeComposant")
+    List <Menu> findByTypeComposant(String typeComposant);
 }
 
 

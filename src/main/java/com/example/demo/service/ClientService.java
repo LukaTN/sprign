@@ -1,11 +1,16 @@
 package com.example.demo.service;
-
 import com.example.demo.entities.Client;
 import com.example.demo.repository.ClientRepo;
-
+import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import java.util.List;
 
+@Service
+@AllArgsConstructor
 public class ClientService implements IClientService {
+
+
     ClientRepo clientRepository;
 
     @Override
