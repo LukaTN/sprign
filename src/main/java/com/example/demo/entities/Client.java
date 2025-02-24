@@ -1,14 +1,11 @@
 package com.example.demo.entities;
-import com.example.demo.entities.Commande;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.Serializable;
-import java.util.List;
-import java.util.Date;
-import java.util.Objects;
+import java.time.LocalDate;
 import java.util.Set;
 
 @Entity
@@ -29,7 +26,7 @@ public class Client implements Serializable {
     Long idClient; // Clé primaire
     String identifiant;
     @Temporal(TemporalType.DATE)
-    Date datePremiereVisite;
+    LocalDate datePremiereVisite;
 
     @OneToMany(mappedBy = "client")
     Set<Commande> commandes;

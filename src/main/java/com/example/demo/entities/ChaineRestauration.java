@@ -23,7 +23,7 @@ public class ChaineRestauration {
      Long idChaineRestauration;
      String libelle;
     @Temporal(TemporalType.DATE)
-     LocalDate localDate;
+     LocalDate dateCreation;
 
     @OneToMany(mappedBy = "chaineRestauration",cascade = CascadeType.ALL)
      Set<Restaurant> restaurant;

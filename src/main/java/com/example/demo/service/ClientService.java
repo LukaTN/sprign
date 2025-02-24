@@ -38,4 +38,6 @@ public class ClientService implements IClientService {
     public List<Client> addClients(List<Client> clients) {
        return clientRepository.saveAll(clients);
     }
+
+
 }
